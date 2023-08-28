@@ -10,19 +10,20 @@ recovery screen -> Stories screen -> Wallet home screen.
 ### Objective:
 To test the flow from the welcome screen to successfully opening the wallet with new user tips displayed on the home screen
 
-Here's the list of all functional E2E cases:
+Certainly, here's the table with the test cases in the format you provided:
 
 | **Test Case ID** | **Test Case Description** | **Preconditions** | **Test Steps** | **Expected Result** | **Status** |
-|------------------|--------------------------|-------------------|----------------|---------------------|------------|
-| TC001 | End-to-End Positive Flow Test | App installed and launched | 1. Verify Welcome Screen elements.<br>2. Tap on "Create New Wallet" button.<br>3. Enter a valid password and confirm it.<br>4. Write down the secret phrase.<br>5. Confirm the secret phrase.<br>6. Tap "Open Wallet" button.<br>7. Verify new user tips on the home screen. | The wallet is successfully created, and new user tips are displayed on the home screen. | Partial executed |
-| TC002 | Negative Flow: Empty Password | App installed and launched | 1. Tap "Create New Wallet" button.<br>2. Leave the password fields empty.<br>3. Tap "Confirm" button. | next button should be disabled | Not Executed |
-| TC003 | Negative Flow: Password Mismatch | App installed and launched | 1. Tap "Create New Wallet" button.<br>2. Enter a password and a different confirmation password.<br>3. next button should be disabled | App displays an error message indicating that the passwords do not match. | Not Executed |
-| TC004 | Negative Flow: Weak Password | App installed and launched | 1. Tap "Create New Wallet" button.<br>2. Enter a weak password and confirm it.<br>3. Tap "Confirm" button. | App displays an error message indicating that the password is too weak. | Not Executed |
-| TC005 | Negative Flow: Incorrect Secret Phrase | App installed and launched | 1. Complete the password setup.<br>2. Write down an incorrect secret phrase.<br>3. Confirm the incorrect secret phrase.<br>4. Tap "Confirm" button. | App displays an error message indicating that the secret phrases do not match. | Not Executed |
-| TC006 | Negative Flow: Incorrect Secret Phrase Confirmation | App installed and launched | 1. Complete the password setup.<br>2. Write down the secret phrase.<br>3. Confirm the secret phrase with an incorrect confirmation.<br>4. Tap "Confirm" button. | App displays an error message indicating that the secret phrase confirmation is incorrect. | Not Executed |
-| TC007 | Negative Flow: Incorrect Order of Secret Phrase | App installed and launched | 1. Complete the password setup.<br>2. Write down the secret phrase.<br>3. Enter the correct secret phrase in the incorrect order.<br>4. Tap "Confirm" button. | App displays an error message indicating that the secret phrases do not match. | Not Executed |
-| TC008 | Negative Flow: Incorrect Secret Phrase Confirmation Order | App installed and launched | 1. Complete the password setup.<br>2. Write down the secret phrase.<br>3. Confirm the secret phrase in the incorrect order.<br>4. Tap "Confirm" button. | App displays an error message indicating that the secret phrases do not match. | Not Executed |
-| TC009 | Edge Case: Maximum Password Length | App installed and launched | 1. Tap "Create New Wallet" button.<br>2. Enter a password of maximum allowed length.<br>3. Confirm the password.<br>4. Tap "Confirm" button. | The password is successfully set and confirmed. | Not Executed |
+|------------------|--------------------------|------------------|----------------|---------------------|------------|
+| TC001            | Positive: Create New Wallet | - | 1. On Welcome screen, select "I don’t have a wallet"<br>2. On Set Passcode screen, set a valid passcode<br>3. On Confirm Passcode screen, confirm the passcode<br>4. On Secret phrase backup screen, successfully back up secret phrase<br>5. On Consent screen, agree to terms<br>6. On Recovery phrase screen, confirm recovery phrase<br>7. On Confirm recovery screen, confirm recovery process<br>8. On Stories screen, proceed<br>9. On Wallet home screen, verify elements | New wallet is created and all screens are successfully navigated. | partially executed |
+| TC002            | Negative: Cancel Recovery Confirmation | - | 1. On Welcome screen, select "I don’t have a wallet"<br>2. On Set Passcode screen, set a valid passcode<br>3. On Confirm Passcode screen, confirm the passcode<br>4. On Secret phrase backup screen, successfully back up secret phrase<br>5. On Consent screen, agree to terms<br>6. On Recovery phrase screen, cancel recovery phrase confirmation<br>7. On Confirm recovery screen, proceed | Recovery process is not confirmed and user remains on the Confirm recovery screen. | Draft |
+| TC003            | Negative: Deny Biometric Login Pop Up | - | 1. On Welcome screen, select "I don’t have a wallet"<br>2. On Set Passcode screen, set a valid passcode<br>3. On Confirm Passcode screen, confirm the passcode<br>4. On Secret phrase backup screen, successfully back up secret phrase<br>5. On Consent screen, agree to terms<br>6. Deny biometric login pop up<br>7. On Recovery phrase screen, confirm recovery phrase | Biometric login is not enabled and user continues with recovery process. | Draft |
+| TC004            | Negative: Mismatched Passcodes | - | 1. On Welcome screen, select "I don’t have a wallet"<br>2. On Set Passcode screen, set a valid passcode<br>3. On Confirm Passcode screen, enter a different passcode<br>4. Error message is displayed | Passcodes do not match and an error message is shown. | Draft |
+| TC005            | Negative: Decline Terms on Consent Screen | - | 1. On Welcome screen, select "I don’t have a wallet"<br>2. On Set Passcode screen, set a valid passcode<br>3. On Confirm Passcode screen, confirm the passcode<br>4. On Secret phrase backup screen, successfully back up secret phrase<br>5. Decline terms on consent screen<br>6. Error message is displayed | Terms are declined and an error message is shown. | Draft |
+| TC006            | Negative: Empty Passcode Fields on Set Passcode Screen | - | 1. On Welcome screen, select "I don’t have a wallet"<br>2. Leave passcode fields empty on Set Passcode screen<br>3. Attempt to proceed<br>4. Error message is displayed | Passcode fields are left empty and an error message is shown. | Draft |
+| TC007            | Negative: Cancel Secret Phrase Backup | - | 1. On Welcome screen, select "I don’t have a wallet"<br>2. On Set Passcode screen, set a valid passcode<br>3. On Confirm Passcode screen, confirm the passcode<br>4. Cancel secret phrase backup<br>5. Error message is displayed | Secret phrase backup is canceled and an error message is shown. | Draft |
+| TC008            | Negative: Invalid Recovery Phrase | - | 1. On Welcome screen, select "I don’t have a wallet"<br>2. On Set Passcode screen, set a valid passcode<br>3. On Confirm Passcode screen, confirm the passcode<br>4. On Secret phrase backup screen, successfully back up secret phrase<br>5. On Consent screen, agree to terms<br>6. On Recovery phrase screen, enter an invalid recovery phrase<br>7. Error message is displayed | Recovery phrase is invalid and an error message is shown. | Draft |
+
+Please replace the "Draft" in the "Status" column with the actual status of each test case.
 
 ### Tools & Framework:
 
@@ -33,5 +34,11 @@ Here's the list of all functional E2E cases:
 
 ### Test Result:
 
+![img.png](img.png)
+
 Please note that 1st test is partial complete because I am not sure how to interact with passcode screen & hence couldn't finish any other test.
 
+
+### Instructions: 
+
+1. You would need to have Appium Server started locally before running the test.
