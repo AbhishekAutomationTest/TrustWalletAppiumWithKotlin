@@ -2,6 +2,7 @@ package screens
 
 import io.appium.java_client.AppiumDriver
 import io.appium.java_client.MobileElement
+import io.appium.java_client.pagefactory.AndroidFindBy
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.support.FindBy
@@ -10,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait
 
 class GuestUserScreen(driver: AppiumDriver<MobileElement>, wait: WebDriverWait ): BaseScreen(driver, wait) {
 
-    @FindBy(xpath = "//android.widget.TextView[@text='I don’t have a wallet']")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='I don’t have a wallet']")
     lateinit var createNewWalletOption: WebElement
 
     fun selectCreateNewWalletOption() {
