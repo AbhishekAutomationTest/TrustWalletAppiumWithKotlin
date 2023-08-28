@@ -9,7 +9,7 @@ class NewWalletTests : BaseTest() {
     fun verifyCreateNewWalletFlow(){
         guestUserScreen.waitToBeVisible()
         guestUserScreen.selectCreateNewWalletOption()
-        guestUserScreen.enterPasscode("111111")
+        passcodeScreen.enterPasscode("111111")
         //passcodeScreen.enterPasscode("111111")
     }
 }
